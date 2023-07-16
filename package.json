@@ -3,10 +3,33 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": {
+    "name": "dovigod"
+  },
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.js",
+  "main": "./dist/index.cjs",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
+  "keywords": [
+    "fragment"
+  ],
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/dovigod/fragment"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "publish": "npm publish"
   },
   "devDependencies": {
     "@types/node": "^20.4.2",

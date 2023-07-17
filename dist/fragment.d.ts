@@ -33,16 +33,18 @@ export declare class Generator extends Equation {
      * @param k - minimum fragment count to recover
      * @returns
      */
-    static createWalletFragment(n: number, k: number): Data[];
+    static createWalletFragment(n: number, k: number): string[];
     /**
      * Resolve PrivateKey Back
      */
-    static recover(shares: Data[], point?: bigint): string;
+    static recover(fragments: string[], point?: bigint): string;
     /**
      * creates (degree + 1) count of fragment
      * @params {number} n - fragment count to generate. n should be higher than k (degree + 1) (default : degree + 1)
      * @returns Data[]
      */
-    fragmentize(n?: number): Data[];
+    fragmentize(n?: number): Promise<string[]>;
+    static generateFragmentRecoveryPhase(fragment: string, password: string): Promise<string>;
+    static recoverFragment(recoveryPhase: string, password: string): Promise<string>;
 }
 export {};

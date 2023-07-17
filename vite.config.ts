@@ -1,9 +1,10 @@
 import { defineConfig } from "vite";
 import path from "path";
 import dts from "vite-plugin-dts";
+import viteCompression from "vite-plugin-compression";
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [dts()],
+  plugins: [viteCompression(), dts()],
   build: {
     minify: true,
     lib: {

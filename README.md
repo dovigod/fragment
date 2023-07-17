@@ -7,6 +7,8 @@ Split your private key and share with others!🙉
 
 As long as you keep your fragment, you'll treated as **VIP** by other co-sharers⭐️
 
+Shamir , Elliptic curve , two-way enctyption algorith used.
+
 ## 🏃‍♂Usage
 
 ### Create Fragments

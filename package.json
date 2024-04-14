@@ -27,7 +27,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "publish": "npm publish",
+    "pub": "npm publish",
     "test": "mocha --require ts-node/register ./test/**/**.spec.ts --timeout 25000 --exit"
   },
   "devDependencies": {

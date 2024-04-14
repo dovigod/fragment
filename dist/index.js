@@ -93,8 +93,8 @@ function isHexString(value, length) {
   }
   return true;
 }
-function cryptoFactory(crypto) {
-  const cryptoModule = initializeCryptoModule(crypto);
+function cryptoFactory(crypto, isBuiltIn) {
+  const cryptoModule = initializeCryptoModule(crypto, isBuiltIn);
   return {
     isHexString,
     aesGcmDecrypt: aesGcmDecrypt.bind(cryptoModule._context, cryptoModule),
@@ -106,11 +106,11 @@ function cryptoFactory(crypto) {
     _context: cryptoModule
   };
 }
-const initializeCryptoModule = (cryptoModule) => {
+const initializeCryptoModule = (cryptoModule, isBuiltIn) => {
   let crypto = cryptoModule;
-  if ("window" in globalThis) {
+  if ("window" in globalThis && isBuiltIn) {
     crypto = refineBuiltInCryptoModule("browser", cryptoModule);
-  } else if (typeof process === "object") {
+  } else if (typeof process === "object" && isBuiltIn) {
     crypto = refineBuiltInCryptoModule("node", cryptoModule);
   }
   return crypto;
@@ -213,8 +213,8 @@ const _Generator = class _Generator extends Equation {
     __publicField(this, "recoveryCnt");
     this.recoveryCnt = recoveryCnt;
   }
-  static async initialize(cryptoModule) {
-    _Generator.cryptoUtil = cryptoFactory(cryptoModule);
+  static async initialize(cryptoModule, isBuiltIn = true) {
+    _Generator.cryptoUtil = cryptoFactory(cryptoModule, isBuiltIn);
   }
   /**
    *

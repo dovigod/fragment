@@ -28,16 +28,21 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "publish": "npm publish",
-    "test": "jest ./spec"
+    "test": "mocha --require ts-node/register ./test/**/**.spec.ts --timeout 25000 --exit"
   },
   "devDependencies": {
+    "@types/chai": "^4.3.14",
+    "@types/mocha": "^10.0.6",
     "@types/node": "^20.4.2",
+    "chai": "^5.1.0",
+    "ethers": "^6.6.3",
     "jest": "^29.6.1",
+    "mocha": "^10.4.0",
     "path": "^0.12.7",
+    "ts-node": "^10.9.2",
     "typescript": "^5.0.2",
     "vite": "^4.4.0",
     "vite-plugin-compression": "^0.5.1",
-    "vite-plugin-dts": "^3.3.0",
-    "ethers": "^6.6.3"
+    "vite-plugin-dts": "^3.3.0"
   }
 }

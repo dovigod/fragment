@@ -138,8 +138,8 @@ export function isHexString(value: any, length?: number | boolean) {
   return true;
 }
 
-export function cryptoFactory(crypto: CryptoModule) {
-  const cryptoModule = initializeCryptoModule(crypto);
+export function cryptoFactory(crypto: CryptoModule, isBuiltIn?: boolean) {
+  const cryptoModule = initializeCryptoModule(crypto, isBuiltIn);
   return {
     isHexString,
     aesGcmDecrypt: aesGcmDecrypt.bind(cryptoModule._context, cryptoModule),
@@ -153,13 +153,14 @@ export function cryptoFactory(crypto: CryptoModule) {
 }
 
 const initializeCryptoModule = (
-  cryptoModule: CryptoModule | BuiltInCryptoModule
+  cryptoModule: CryptoModule | BuiltInCryptoModule,
+  isBuiltIn?: boolean
 ) => {
   let crypto = cryptoModule;
 
-  if ("window" in globalThis) {
+  if ("window" in globalThis && isBuiltIn) {
     crypto = refineBuiltInCryptoModule("browser", cryptoModule) as CryptoModule;
-  } else if (typeof process === "object") {
+  } else if (typeof process === "object" && isBuiltIn) {
     crypto = refineBuiltInCryptoModule("node", cryptoModule) as CryptoModule;
   }
   return crypto as CryptoModule;

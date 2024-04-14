@@ -16,9 +16,10 @@ export class Generator extends Equation {
   private static cryptoUtil: CryptoUtil;
 
   public static async initialize(
-    cryptoModule: CryptoModule | BuiltInCryptoModule
+    cryptoModule: CryptoModule | BuiltInCryptoModule,
+    isBuiltIn = true
   ) {
-    Generator.cryptoUtil = cryptoFactory(cryptoModule);
+    Generator.cryptoUtil = cryptoFactory(cryptoModule, isBuiltIn);
   }
 
   constructor(recoveryCnt: number, secret: Secretish) {

@@ -26,8 +26,9 @@ dist-ssr
 index.html
 ./index.html
 /index.html
-src/x.js
+/src/x.js
 /node_modules
 node_modules
 node_modules/*
 dist
+/dist

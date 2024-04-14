@@ -6,7 +6,6 @@ Split your private key and share to trustworthies in case of losing your key!
 
 ![fragment drawio](https://github.com/dovigod/fragment/assets/30416914/b7498135-543f-4182-8dae-0064968a93d3)
 
-
 ## 🏃‍♂Usage
 
 ### Common (Initialization)
@@ -31,7 +30,7 @@ Generator.initialize(window.crypto);
 import { Generator } from 'fragment-key'
 import CustomCryptoLibrary from 'my-custom-library'
 
-Generator.initialize(CustomCryptoLibrary);
+Generator.initialize(CustomCryptoLibrary, false);
 ```
 
 \*\*\* NOTE Custom Crypto library should implement `CryptoModule` interface

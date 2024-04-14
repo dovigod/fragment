@@ -11,7 +11,7 @@ export default defineConfig({
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "fragment-wallet",
       fileName: "index",
-      formats: ["cjs", "umd", "es"],
+      formats: ["es"],
     },
   },
 });

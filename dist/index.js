@@ -116,9 +116,7 @@ const initializeCryptoModule = (cryptoModule) => {
   return crypto;
 };
 function refineBuiltInCryptoModule(env, cryptoModule) {
-  console.log("hi");
   if (env === "browser") {
-    console.log("hit");
     return {
       getRandomValues: cryptoModule.getRandomValues,
       sha256: (data) => cryptoModule.subtle.digest("SHA-256", data),
@@ -144,7 +142,7 @@ function refineBuiltInCryptoModule(env, cryptoModule) {
         true,
         ["encrypt", "decrypt"]
       ),
-      _context: cryptoModule
+      _context: cryptoModule.webcrypto
     };
   }
 }

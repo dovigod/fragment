@@ -6,7 +6,7 @@ import viteCompression from "vite-plugin-compression";
 export default defineConfig({
   plugins: [viteCompression(), dts()],
   build: {
-    minify: true,
+    minify: false,
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "fragment-wallet",

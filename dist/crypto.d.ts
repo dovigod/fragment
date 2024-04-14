@@ -16,6 +16,7 @@ export interface CryptoModule {
     decrypt: (...params: any) => Promise<ArrayBuffer>;
     _context?: any;
 }
+export type BuiltInCryptoModule = any;
 interface SimplifiedAesKeyAlgo {
     name: string;
     iv: ArrayBufferLike;

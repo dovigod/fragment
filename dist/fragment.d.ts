@@ -1,4 +1,4 @@
-import { CryptoModule } from "./crypto";
+import { CryptoModule, BuiltInCryptoModule } from "./crypto";
 import { Equation } from "./Equation";
 type HexString = string;
 type Secretish = HexString | number | bigint;
@@ -6,7 +6,7 @@ type Fragment = string;
 export declare class Generator extends Equation {
     recoveryCnt: number;
     private static cryptoUtil;
-    static initialize(cryptoModule: CryptoModule): Promise<void>;
+    static initialize(cryptoModule: CryptoModule | BuiltInCryptoModule): Promise<void>;
     constructor(recoveryCnt: number, secret: Secretish);
     /**
      *

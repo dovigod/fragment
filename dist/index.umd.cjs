@@ -112,24 +112,17 @@ var __publicField = (obj, key, value) => {
   }
   const initializeCryptoModule = (cryptoModule) => {
     let crypto = cryptoModule;
-    if (!crypto) {
-      if ("window" in globalThis) {
-        crypto = refineBuiltInCryptoModule(
-          "browser",
-          cryptoModule
-        );
-      } else if (typeof process === "object") {
-        crypto = refineBuiltInCryptoModule("node", cryptoModule);
-      } else {
-        throw new Error(
-          "Unable to inject Crypto module. Seems current environment is neither browser or commonjs"
-        );
-      }
+    if ("window" in globalThis) {
+      crypto = refineBuiltInCryptoModule("browser", cryptoModule);
+    } else if (typeof process === "object") {
+      crypto = refineBuiltInCryptoModule("node", cryptoModule);
     }
     return crypto;
   };
   function refineBuiltInCryptoModule(env, cryptoModule) {
+    console.log("hi");
     if (env === "browser") {
+      console.log("hit");
       return {
         getRandomValues: cryptoModule.getRandomValues,
         sha256: (data) => cryptoModule.subtle.digest("SHA-256", data),

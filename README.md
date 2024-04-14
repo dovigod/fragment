@@ -4,6 +4,9 @@ Private Key Fragmentize & recover module.
 
 Split your private key and share to trustworthies in case of losing your key!
 
+![fragment drawio](https://github.com/dovigod/fragment/assets/30416914/b7498135-543f-4182-8dae-0064968a93d3)
+
+
 ## 🏃‍♂Usage
 
 ### Common (Initialization)
